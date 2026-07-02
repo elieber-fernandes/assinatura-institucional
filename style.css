@@ -256,8 +256,8 @@ label {
 }
 
 .select-wrapper select {
-  appearance: none;
   -webkit-appearance: none;
+  appearance: none;
   padding-right: 2.5rem;
   cursor: pointer;
 }
