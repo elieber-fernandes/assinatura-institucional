@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assinatura de Email - UBEC</title>
+  <meta name="description" content="Gerador de assinatura de e-mail institucional para as Unidades de Missão UBEC">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script>
+</head>
+<body>
+
+  <!-- Header institucional -->
+  <header class="header">
+    <div class="header-content">
+      <img src="logomarca/logo.png" alt="UBEC - União Brasileira de Educação Católica" class="header-logo">
+      <div class="header-text">
+        <h1>Gerador de Assinatura</h1>
+        <p>Assinatura institucional de e-mail</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="main-container">
+    <!-- Coluna do formulário -->
+    <section class="card form-card">
+      <div class="card-header">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <h2>Dados do Colaborador</h2>
+      </div>
+
+      <div class="form-group">
+        <label for="unidades_de_missao">Unidade de Missão</label>
+        <div class="select-wrapper">
+          <select class="form-control" id="unidades_de_missao">
+            <option value="" disabled selected>Selecione sua unidade</option>
+            <option value="ubec">UBEC - Sede</option>
+            <option value="cecb">Colégio Católica de Brasília</option>
+            <option value="cecc">Colégio Católica de Curitiba</option>
+            <option value="cecma">Colégio Católica Machado de Assis</option>
+            <option value="padre">Colégio Católica Padre de Man</option>
+            <option value="timoteo">Colégio Católica de Timóteo</option>
+          </select>
+          <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nome">Nome completo</label>
+          <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex: Maria da Silva">
+        </div>
+      </div>
+
+      <div class="form-row two-cols">
+        <div class="form-group">
+          <label for="cargo">Cargo</label>
+          <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Ex: Analista de TI">
+        </div>
+        <div class="form-group">
+          <label for="setor">Setor</label>
+          <input type="text" class="form-control" id="setor" name="setor" placeholder="Ex: Tecnologia">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Ex: maria.silva@ubec.edu.br">
+      </div>
+
+      <div class="form-row two-cols">
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(00) 0000-0000">
+        </div>
+        <div class="form-group">
+          <label for="celular">Celular</label>
+          <input type="tel" class="form-control" id="celular" name="celular" placeholder="(00) 00000-0000">
+        </div>
+      </div>
+
+      <button id="submit-button" class="btn btn-primary">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+        Gerar Assinatura
+      </button>
+    </section>
+
+    <!-- Coluna do preview -->
+    <section class="card preview-card">
+      <div class="card-header">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+          <path d="M8 21h8M12 17v4"/>
+        </svg>
+        <h2>Pré-visualização</h2>
+      </div>
+
+      <div class="preview-area">
+        <div id="column-2" class="preview-content"></div>
+
+        <div class="preview-placeholder" id="preview-placeholder">
+          <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <p>Preencha os dados ao lado e clique em <strong>"Gerar Assinatura"</strong></p>
+        </div>
+      </div>
+
+      <div class="instructions">
+        <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 16v-4M12 8h.01"/>
+        </svg>
+        <p>Após gerar, clique em <strong>"Copiar Assinatura"</strong> e cole <kbd>Ctrl+V</kbd> na sua ferramenta de e-mail.</p>
+      </div>
+
+      <button id="select-button" class="btn btn-secondary">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        Copiar Assinatura
+      </button>
+    </section>
+  </main>
+
+  <!-- Toast de notificação -->
+  <div id="toast" class="toast" role="alert">
+    <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+      <polyline points="22 4 12 14.01 9 11.01"/>
+    </svg>
+    <span id="toast-message">Assinatura copiada!</span>
+  </div>
+
+  <script src="js/assinatura.js"></script>
+  <script src="js/formatarTelefone.js"></script>
+  <script src="js/formatarCelular.js"></script>
+  <script src="js/selectAssinatura.js"></script>
+</body>
+</html>
