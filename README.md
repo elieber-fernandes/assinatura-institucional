@@ -67,4 +67,4 @@ Projeto desenvolvido para uso interno da UBEC e suas Unidades de Missão.
 
 ---
 
-> Criado por [Julio Scheffmacher Rank](https://github.com/juliosrank)
+> Criado por [Elieber Fernandes Martins](https://github.com/elieber-fernandes)
